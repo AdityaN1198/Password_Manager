@@ -5,6 +5,9 @@ from data_saving import load_data
 users_dict = load_data()
 
 login_signup_win = tk.Tk()
+login_signup_win.geometry('200x100')
+login_signup_win.eval('tk::PlaceWindow . center')
+login_signup_win.title('Password Manager')
 
 def dest_win():
     login_signup_win.destroy()
@@ -60,6 +63,7 @@ def dest_win():
                 def show_pass():
                     choice_win.withdraw()
                     second_win = tk.Tk()
+                    second_win.geometry('500x100')
                     second_win.title('Passwords')
 
                     def display_passwords():
@@ -106,6 +110,8 @@ def dest_win():
                     choice_win.withdraw()
 
                     add_pass_win = tk.Tk()
+                    add_pass_win.geometry('500x200')
+                    add_pass_win.eval('tk::PlaceWindow . center')
 
                     platform_text = tk.Label(add_pass_win,
                                              text='Name of Platform')
@@ -128,6 +134,9 @@ def dest_win():
                     add_pass_win.mainloop()
 
                 choice_win = tk.Tk()
+                choice_win.geometry('500x100')
+                choice_win.eval('tk::PlaceWindow . center')
+                choice_win.title('Password Manager')
 
                 see_pass = tk.Button(choice_win,
                                      text='Show my Passwords',
@@ -139,7 +148,6 @@ def dest_win():
                                          command=add_pass)
                 add_new_pass.pack()
 
-                print(users_dict)
 
                 choice_win.mainloop()
 
@@ -159,6 +167,7 @@ def make_new_acct():
     global users_dict
 
     new_acct_win = tk.Toplevel()
+    new_acct_win.geometry('500x300')
 
     new_user_name_text = tk.Label(new_acct_win,
                                   text='New Username')
